@@ -21,7 +21,7 @@ public class Author {
     @PastOrPresent
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public Author(@NotBlank String nome, @NotBlank @URL String linkGithub) {
+    public Author(@NotBlank String name, @NotBlank @URL String linkGithub) {
         this.nome = nome;
         this.linGithub = linkGithub;
     }
