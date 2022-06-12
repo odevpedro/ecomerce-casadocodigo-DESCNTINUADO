@@ -16,22 +16,26 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private @NotBlank String nome;
-    private @NotBlank @URL String linGithub;
+    private @NotBlank @URL String linkGithub;
 
     @PastOrPresent
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public Author(@NotBlank String name, @NotBlank @URL String linkGithub) {
+    public Author(@NotBlank String nome, @NotBlank @URL String linkGithub) {
         this.nome = nome;
-        this.linGithub = linkGithub;
+        this.linkGithub = linkGithub;
     }
 
     @Override
     public String toString() {
         return "Autor{" +
                 "nome='" + nome + '\'' +
-                ", linGithub='" + linGithub + '\'' +
+                ", linkGithub='" + linkGithub + '\'' +
                 ", createdAt=" + createdAt +
                 '}';
+    }
+
+    Author(){
+
     }
 }
