@@ -7,7 +7,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.function.Function;
 
 public class NewBookFrom {
     @NotBlank
@@ -26,7 +25,7 @@ public class NewBookFrom {
     private BigDecimal numeroPaginas;
     @NotBlank
     private String isbn;
-    @NotNull
+    @NotBlank
     private MultipartFile capa;
 
     @NotNull
@@ -123,6 +122,6 @@ public class NewBookFrom {
     public Book newBook(AuthorRepository authorRepository, Uploader uploader){
         Author author = authorRepository.findById(authorId).get();
         String linkCapaLivro = uploader.upload(capa);
-        return new Book(titulo, subTitulo, preco, conteudo, sumario, numeroPaginas, isbn, linkCapaLivro, author);
+        return new Book(titulo, subTitulo, preco, conteudo, sumario, numeroPaginas, isbn, "linkCapaLivro", author);
     }
 }

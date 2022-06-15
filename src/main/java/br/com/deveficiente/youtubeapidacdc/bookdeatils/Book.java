@@ -39,7 +39,7 @@ public class Book {
     @ManyToOne
     private @NotNull Author autor;
 
-    public Book(@NotBlank String titulo, @NotBlank @Size(max = 50)String subTitulo, @Min(20)BigDecimal preco, @NotBlank String conteudo, @NotBlank String sumario, @Min(100) BigDecimal numeroPaginas, @NotBlank String isbn, @NotBlank @URL String linkCapaLivro, @NotNull Author author) {
+    public Book(@NotBlank String titulo, @NotBlank @Size(max = 50) String subTitulo, @Min(20) BigDecimal preco, @NotBlank String conteudo, @NotBlank String sumario, @Min(100) BigDecimal numeroPaginas, @NotBlank String isbn, @NotBlank @URL String linkCapaLivro, @NotNull Author author) {
         this.titulo = titulo;
         this.subTitulo = subTitulo;
         this.preco = preco;
@@ -47,14 +47,20 @@ public class Book {
         this.sumario = sumario;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
-        this.linkCapaLivro = linkCapaLivro;
         this.autor = author;
+        this.linkCapaLivro = linkCapaLivro;
+    }
+
+
+    Book(){
+
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "titulo='" + titulo + '\'' +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
                 ", subTitulo='" + subTitulo + '\'' +
                 ", preco=" + preco +
                 ", conteudo='" + conteudo + '\'' +
@@ -66,3 +72,8 @@ public class Book {
                 '}';
     }
 }
+
+
+
+
+

@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class LocalUploader implements Uploader{
     @Override
     public String upload(MultipartFile file) {
-        System.out.println("Enviando arquivo...");
-        return "http://s3.amazon/bucket/"+file.getOriginalFilename();
+        System.out.println("Enviando arquivo");
+        return "htpp://google.com" + file.getOriginalFilename();
     }
 }
