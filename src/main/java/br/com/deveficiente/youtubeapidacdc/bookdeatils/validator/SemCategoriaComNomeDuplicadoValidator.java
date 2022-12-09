@@ -1,5 +1,8 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.validator;
 
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.dto.CategoryDto;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.model.Category;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.repository.CategoryRepository;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -16,12 +19,12 @@ public class SemCategoriaComNomeDuplicadoValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return NewCategoryForm.class.isAssignableFrom(clazz);
+        return CategoryDto.class.isAssignableFrom(clazz);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        NewCategoryForm form = (NewCategoryForm) target;
+        CategoryDto form = (CategoryDto) target;
         Optional<Category> possivelCategoria =  repository.findByNome(form.getNome());
         if (possivelCategoria.isPresent()){
             errors.rejectValue("nome", "400", "A categoria já existe");

@@ -1,5 +1,8 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.validator;
 
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.model.Book;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.dto.BookDto;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.repository.BookRepository;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -18,7 +21,7 @@ public class UniqueBookTitleValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        NewBookFrom form = (NewBookFrom) target;
+        BookDto form = (BookDto) target;
         String title = form.getTitulo();
 
         Optional<Book> possivelLivro = repository.findByTitulo(title);

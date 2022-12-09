@@ -1,4 +1,4 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.model;
 
 import org.hibernate.validator.constraints.URL;
 

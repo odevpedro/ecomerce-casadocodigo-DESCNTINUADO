@@ -1,5 +1,9 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.controller;
 
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.model.Category;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.validator.SemCategoriaComNomeDuplicadoValidator;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.dto.CategoryDto;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -11,7 +15,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-public class CrudCategory {
+public class CategoryController {
 
     @Autowired
     private CategoryRepository repository;
@@ -24,7 +28,7 @@ public class CrudCategory {
 
     @PostMapping(value = "/api/categoria")
     @Transactional
-    public void nova(@Valid @RequestBody NewCategoryForm form){
+    public void nova(@Valid @RequestBody CategoryDto form){
         Category newCategory = new Category(form.getNome());
         repository.save(newCategory);
     }

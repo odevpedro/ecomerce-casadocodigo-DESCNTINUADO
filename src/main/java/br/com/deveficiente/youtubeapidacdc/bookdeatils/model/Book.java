@@ -1,7 +1,6 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.model;
 
 import org.hibernate.validator.constraints.URL;
-import org.springframework.lang.NonNull;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -12,34 +11,40 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "TB_BOOK")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 100)
+    @Column(nullable = false, unique = true, length = 10)
     private String titulo;
-    @NotBlank
-    @Size(max = 50)
+
+    @Column(nullable = false, unique = true, length = 10)
     private String subTitulo;
-    @Min(20)
+
+    @Column(nullable = false, unique = true, length = 10)
     private BigDecimal preco;
-    @NotBlank
+
+    @Column(nullable = false, unique = true, length = 10)
     private String conteudo;
-    @NotBlank
+
+    @Column(nullable = false, unique = true, length = 10)
     private String sumario;
-    @Min(100)
+
+    @Column(nullable = false, unique = true, length = 10)
     private BigDecimal numeroPaginas;
-    @NotBlank
+
+    @Column(nullable = false, unique = true, length = 10)
     private String isbn;
-    @NotBlank @URL
-    private String linkCapaLivro;
+
+    @Column(nullable = false, unique = true, length = 10)
+    private String capa;
 
     @ManyToOne
     private @NotNull Author autor;
 
-    public Book(@NotBlank String titulo, @NotBlank @Size(max = 50) String subTitulo, @Min(20) BigDecimal preco, @NotBlank String conteudo, @NotBlank String sumario, @Min(100) BigDecimal numeroPaginas, @NotBlank String isbn, @NotBlank @URL String linkCapaLivro, @NotNull Author author) {
+    public Book(@NotBlank String titulo, @NotBlank @Size(max = 50) String subTitulo, @Min(20) BigDecimal preco, @NotBlank String conteudo, @NotBlank String sumario, @Min(100) BigDecimal numeroPaginas, @NotBlank String isbn, @NotBlank String capa, @NotNull Author author) {
         this.titulo = titulo;
         this.subTitulo = subTitulo;
         this.preco = preco;
@@ -48,11 +53,11 @@ public class Book {
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
         this.autor = author;
-        this.linkCapaLivro = linkCapaLivro;
+        this.capa = capa;
     }
 
 
-    Book(){
+    public Book(){
 
     }
 
@@ -67,7 +72,7 @@ public class Book {
                 ", sumario='" + sumario + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
                 ", isbn='" + isbn + '\'' +
-                ", linkCapaLivro='" + linkCapaLivro + '\'' +
+                ", capa='" + capa + '\'' +
                 ", autor=" + autor +
                 '}';
     }

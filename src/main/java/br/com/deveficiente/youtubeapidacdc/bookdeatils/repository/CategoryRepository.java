@@ -1,6 +1,6 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.model.Category;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

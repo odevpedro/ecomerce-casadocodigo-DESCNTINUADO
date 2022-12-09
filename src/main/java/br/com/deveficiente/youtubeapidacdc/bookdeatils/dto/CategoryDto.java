@@ -1,6 +1,6 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.dto;
 
-public class NewCategoryForm {
+public class CategoryDto {
     private String nome;
 
     public String getNome() {

@@ -1,11 +1,12 @@
-package br.com.deveficiente.youtubeapidacdc.bookdeatils;
+package br.com.deveficiente.youtubeapidacdc.bookdeatils.dto;
 
+import br.com.deveficiente.youtubeapidacdc.bookdeatils.model.Author;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.lang.NonNull;
 
 import javax.validation.constraints.NotBlank;
 
-public class NewAuthorForm {
+public class AuthorDto {
     @NotBlank
     private String nome;
 
